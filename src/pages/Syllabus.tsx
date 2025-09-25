@@ -12,24 +12,9 @@ import {
   Camera,
   BookOpen,
   Clock,
-
-
-  Compass
-
 } from "lucide-react";
 
 const Syllabus = () => {
-  const quickNav = [
-    { label: "Grading", href: "#grading" },
-    { label: "Land Acknowledgement", href: "#land" },
-    { label: "Attendance", href: "#attendance" },
-    { label: "Integrity", href: "#integrity" },
-    { label: "Disability Resources", href: "#disability" },
-    { label: "Wellbeing", href: "#counseling" },
-    { label: "Bias & Inclusion", href: "#bias" },
-    { label: "Media Consent", href: "#media" },
-  ];
-
   return (
     <div className="relative min-h-screen bg-background text-ink">
       <div className="absolute inset-0 -z-30 bg-grid-soft opacity-40" />
@@ -45,7 +30,6 @@ const Syllabus = () => {
 
         <div className="relative max-w-6xl mx-auto px-6 py-12 space-y-16">
           {/* Top Navigation */}
-
           <section>
             <div className="flex justify-start">
               <Button variant="outline" asChild>
@@ -54,45 +38,6 @@ const Syllabus = () => {
                   Course Home
                 </Link>
               </Button>
-
-          <section className="space-y-6">
-            <Card className="rounded-3xl border border-border/60 bg-white shadow-lg">
-              <CardContent className="p-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <p className="section-eyebrow">Need a refresher?</p>
-                  <h2 className="text-2xl font-semibold text-ink">Browse the key policy sections</h2>
-                  <p className="text-sm text-ink-muted max-w-xl">
-                    Use the quick navigation to jump directly to the information you need. Everything here mirrors the official syllabus on Canvas.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <Button variant="outline" asChild>
-                    <Link to="/" className="flex items-center gap-2">
-                      <Compass className="w-4 h-4" />
-                      Course Home
-                    </Link>
-                  </Button>
-                  <Button variant="outline" asChild>
-                    <Link to="/week1" className="flex items-center gap-2">
-                      <BookOpen className="w-4 h-4" />
-                      Start Week 1
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="flex flex-wrap gap-2">
-              {quickNav.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/10"
-                >
-                  {item.label}
-                </a>
-              ))}
-
             </div>
           </section>
 
@@ -351,7 +296,6 @@ const Syllabus = () => {
 
           {/* Bottom Navigation */}
           <section className="pb-12">
-
             <div className="flex justify-center">
               <Button variant="outline" asChild>
                 <Link to="/" className="flex items-center gap-2">
@@ -359,20 +303,6 @@ const Syllabus = () => {
                   Back to Course Home
                 </Link>
               </Button>
-
-            <div className="flex flex-col items-center gap-3 text-center">
-              <p className="text-sm text-ink-muted">
-                Looking for weekly content? Jump back to the main schedule to continue planning your semester.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Button variant="outline" asChild>
-                  <Link to="/" className="flex items-center gap-2">
-                    <BookOpen className="w-4 h-4" />
-                    Back to Course Home
-                  </Link>
-                </Button>
-              </div>
-
             </div>
           </section>
         </div>
