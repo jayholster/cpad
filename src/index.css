@@ -114,29 +114,29 @@ All colors MUST be HSL.
     font-feature-settings: 'rlig' 1, 'calt' 1;
   }
 
-  /* Typography Scale - Apple/OpenAI inspired */
+  /* Typography Scale */
   h1 {
-    @apply text-3xl font-semibold tracking-tight text-white;
+    @apply text-4xl font-semibold tracking-tight text-ink;
   }
 
   h2 {
-    @apply text-2xl font-semibold tracking-tight text-white;
+    @apply text-3xl font-semibold tracking-tight text-ink;
   }
 
   h3 {
-    @apply text-xl font-semibold text-foreground;
+    @apply text-2xl font-semibold text-ink;
   }
 
   h4 {
-    @apply text-lg font-medium text-foreground;
+    @apply text-xl font-medium text-ink;
   }
 
   h5 {
-    @apply text-base font-medium text-foreground;
+    @apply text-lg font-medium text-ink;
   }
 
   h6 {
-    @apply text-sm font-medium text-foreground;
+    @apply text-base font-medium text-ink;
   }
 
   /* Clean paragraph styling */

@@ -13,7 +13,9 @@ import {
   ShieldCheck,
   Users,
   Layers,
+  ArrowRight,
   ArrowRight
+  
 } from "lucide-react";
 
 const Home = () => {
@@ -83,6 +85,27 @@ const Home = () => {
       href: "/syllabus",
       icon: FileText,
       isInternal: true,
+    },
+  ];
+
+  const quickSections = [
+    {
+      title: "About the Course",
+      description: "Understand the goals of the studio and how we'll build AI fluency together.",
+      href: "#about",
+      icon: Sparkles,
+    },
+    {
+      title: "Weekly Rhythm",
+      description: "Preview the cadence of workshops, lab time, and Sunday submissions.",
+      href: "#rhythm",
+      icon: Calendar,
+    },
+    {
+      title: "Course Resources",
+      description: "Jump to policies, contact info, and support links whenever you need them.",
+      href: "#resources",
+      icon: FileText,
     },
   ];
 
@@ -158,9 +181,42 @@ const Home = () => {
         </div>
       </header>
 
+      <section className="relative -mt-10 md:-mt-16">
+        <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-full max-w-5xl rounded-3xl bg-white/70 shadow-xl shadow-primary/10 backdrop-blur" />
+        <div className="relative mx-auto grid max-w-5xl gap-4 px-6 py-8 md:grid-cols-3">
+          {quickSections.map(({ title, description, href, icon: Icon }) => (
+            <a
+              key={title}
+              href={href}
+              className="group flex flex-col gap-3 rounded-2xl border border-border/60 bg-white/80 p-6 text-left shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+            >
+              <div className="flex items-center gap-3 text-primary">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <span className="text-sm font-medium tracking-[0.2em] uppercase text-primary/70">Start Here</span>
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-xl font-semibold text-ink">{title}</h3>
+                <p className="text-sm text-ink-muted">{description}</p>
+              </div>
+              <span className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
+                Explore section
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <div className="relative max-w-6xl mx-auto px-6 py-16 space-y-20">
+        {/* Course Description */}
+        <section id="about" className="relative scroll-mt-24">
+
       <div className="relative max-w-6xl mx-auto px-6 py-16 space-y-20">
         {/* Course Description */}
         <section className="relative">
+
           <div className="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent blur-2xl" />
           <Card className="rounded-3xl border-primary/20 bg-white shadow-xl shadow-primary/10">
             <CardContent className="p-10 space-y-6">
@@ -196,13 +252,64 @@ const Home = () => {
         </section>
 
         {/* Weekly Rhythm */}
+
+        <section id="rhythm" className="space-y-10 scroll-mt-24">
+
         <section className="space-y-8">
+
           <div className="flex flex-col items-start gap-3">
             <p className="section-eyebrow">Course Flow</p>
             <h2 className="text-3xl font-bold text-ink">What a typical week feels like</h2>
             <p className="max-w-2xl text-ink-muted">
               Stay grounded with a predictable cadence. Workshops spark ideas midweek, and Sundays close with reflective submissions that keep you iterating.
             </p>
+
+          </div>
+          <div className="grid gap-10 md:grid-cols-[260px_1fr]">
+            <Card className="h-full rounded-3xl border border-primary/20 bg-primary/10 text-primary shadow-none">
+              <CardContent className="flex h-full flex-col justify-between gap-6 p-8">
+                <div className="space-y-3">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary/80">
+                    Weekly Cadence
+                  </span>
+                  <p className="text-lg font-semibold text-primary">Use this as your studio rhythm checklist.</p>
+                </div>
+                <div className="space-y-3 text-sm text-primary/80">
+                  <p>Block time midweek for studio activities and experiments.</p>
+                  <p>Document what you try, what works, and what needs iteration.</p>
+                  <p>Plan your Sunday submissions so there's time for reflection.</p>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="relative pl-6">
+              <div className="absolute left-2 top-0 hidden h-full w-px bg-gradient-to-b from-primary/30 via-primary/20 to-transparent md:block" />
+              <div className="space-y-6">
+                {weeklyRhythm.map(({ title, detail, icon: Icon }, index) => (
+                  <div
+                    key={title}
+                    className="group relative flex flex-col gap-3 rounded-2xl border border-border/60 bg-white/90 p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                  >
+                    <span className="absolute -left-8 top-6 hidden h-4 w-4 rounded-full border-2 border-white bg-primary shadow ring-4 ring-primary/20 md:inline-flex" />
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary/70">Step {index + 1}</p>
+                        <h3 className="text-lg font-semibold text-ink">{title}</h3>
+                      </div>
+                    </div>
+                    <p className="text-sm text-ink-muted">{detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Course Info / Resources */}
+        <section id="resources" className="space-y-6 scroll-mt-24">
+
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {weeklyRhythm.map(({ title, detail, icon: Icon }) => (
@@ -223,6 +330,7 @@ const Home = () => {
 
         {/* Quick Course Info / Resources */}
         <section className="space-y-6">
+
           <div className="flex flex-col items-start gap-3">
             <p className="section-eyebrow">Stay Connected</p>
             <h2 className="text-3xl font-bold text-ink">Essential links & support</h2>
@@ -266,7 +374,11 @@ const Home = () => {
         </section>
 
         {/* Course Modules */}
+
+        <section id="modules" className="space-y-8 scroll-mt-24">
+
         <section className="space-y-8">
+
           <div className="text-center space-y-3">
             <p className="section-eyebrow">Course Modules</p>
             <h2 className="text-3xl font-bold text-ink">Navigate each week at a glance</h2>
