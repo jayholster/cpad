@@ -14,6 +14,8 @@ import {
   Users,
   Layers,
   ArrowRight,
+  ArrowRight
+  
 } from "lucide-react";
 
 const Home = () => {
@@ -210,6 +212,11 @@ const Home = () => {
       <div className="relative max-w-6xl mx-auto px-6 py-16 space-y-20">
         {/* Course Description */}
         <section id="about" className="relative scroll-mt-24">
+
+      <div className="relative max-w-6xl mx-auto px-6 py-16 space-y-20">
+        {/* Course Description */}
+        <section className="relative">
+
           <div className="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent blur-2xl" />
           <Card className="rounded-3xl border-primary/20 bg-white shadow-xl shadow-primary/10">
             <CardContent className="p-10 space-y-6">
@@ -245,13 +252,18 @@ const Home = () => {
         </section>
 
         {/* Weekly Rhythm */}
+
         <section id="rhythm" className="space-y-10 scroll-mt-24">
+
+        <section className="space-y-8">
+
           <div className="flex flex-col items-start gap-3">
             <p className="section-eyebrow">Course Flow</p>
             <h2 className="text-3xl font-bold text-ink">What a typical week feels like</h2>
             <p className="max-w-2xl text-ink-muted">
               Stay grounded with a predictable cadence. Workshops spark ideas midweek, and Sundays close with reflective submissions that keep you iterating.
             </p>
+
           </div>
           <div className="grid gap-10 md:grid-cols-[260px_1fr]">
             <Card className="h-full rounded-3xl border border-primary/20 bg-primary/10 text-primary shadow-none">
@@ -297,6 +309,28 @@ const Home = () => {
 
         {/* Quick Course Info / Resources */}
         <section id="resources" className="space-y-6 scroll-mt-24">
+
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {weeklyRhythm.map(({ title, detail, icon: Icon }) => (
+              <Card key={title} className="rounded-2xl border border-border/60 bg-white shadow-lg shadow-primary/5">
+                <CardContent className="p-6 flex gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="text-lg font-semibold text-ink">{title}</h3>
+                    <p className="text-sm text-ink-muted">{detail}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Quick Course Info / Resources */}
+        <section className="space-y-6">
+
           <div className="flex flex-col items-start gap-3">
             <p className="section-eyebrow">Stay Connected</p>
             <h2 className="text-3xl font-bold text-ink">Essential links & support</h2>
@@ -340,7 +374,11 @@ const Home = () => {
         </section>
 
         {/* Course Modules */}
+
         <section id="modules" className="space-y-8 scroll-mt-24">
+
+        <section className="space-y-8">
+
           <div className="text-center space-y-3">
             <p className="section-eyebrow">Course Modules</p>
             <h2 className="text-3xl font-bold text-ink">Navigate each week at a glance</h2>
