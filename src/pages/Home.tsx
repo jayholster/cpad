@@ -8,6 +8,9 @@ import {
   FileText,
   ExternalLink,
   Clock,
+
+  BookOpen,
+
   Sparkles,
   Brain,
   ShieldCheck,
@@ -16,10 +19,28 @@ import {
   ArrowRight,
   ArrowRight
   
+
 } from "lucide-react";
 
 const Home = () => {
   const weeks = Array.from({ length: 15 }, (_, i) => i + 1);
+
+
+  const infoCards = [
+    {
+      title: "Schedule",
+      icon: Calendar,
+      lines: ["Wednesdays 2:30–3:45", "Hybrid 50/50"],
+    },
+    {
+      title: "Location & Instructor",
+      icon: BookOpen,
+      lines: ["Borland 113", "Dr. Jacob Holster"],
+    },
+    {
+      title: "Deadlines",
+      icon: Clock,
+      lines: ["Weekly tasks due", "Sundays @ 11:59 PM"],
 
   const courseHighlights = [
     {
@@ -59,6 +80,7 @@ const Home = () => {
       title: "Iterate with Feedback",
       detail: "Compare tools, document insights, and share progress with peers and Dr. Holster.",
       icon: ShieldCheck,
+
     },
   ];
 
@@ -87,6 +109,7 @@ const Home = () => {
       isInternal: true,
     },
   ];
+
 
   const quickSections = [
     {
@@ -149,6 +172,31 @@ const Home = () => {
               <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
                 Creating & Learning with AI
               </h1>
+
+              <div className="bg-white/10 backdrop-blur-md mx-auto inline-flex rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-primary-foreground/85">
+                Wed 2:30–3:45 • Borland 113 • Dr. Jacob Holster
+              </div>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3">
+              {infoCards.map(({ title, icon: Icon, lines }) => (
+                <Card key={title} className="card-gradient-border rounded-2xl bg-white/10 text-left text-primary-foreground shadow-xl shadow-black/10">
+                  <CardContent className="p-6 space-y-2">
+                    <div className="flex items-center gap-3 text-primary-foreground/80">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/15">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <p className="text-sm uppercase tracking-[0.3em]">{title}</p>
+                    </div>
+                    {lines.map((line) => (
+                      <p key={line} className="text-sm md:text-base text-primary-foreground/90">
+                        {line}
+                      </p>
+                    ))}
+                  </CardContent>
+                </Card>
+              ))}
+
               <p className="text-lg md:text-xl text-primary-foreground/85 max-w-2xl mx-auto">
                 Join a design-forward studio course where experimentation, critique, and ethics intersect to shape the future of creative technology.
               </p>
@@ -176,10 +224,16 @@ const Home = () => {
                   <p className="text-sm text-primary-foreground/75">Stay current with Canvas announcements.</p>
                 </CardContent>
               </Card>
+
             </div>
           </div>
         </div>
       </header>
+
+
+      <div className="relative max-w-6xl mx-auto px-6 py-16 space-y-16">
+        {/* Course Description */}
+        <section id="about" className="relative scroll-mt-24">
 
       <section className="relative -mt-10 md:-mt-16">
         <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-full max-w-5xl rounded-3xl bg-white/70 shadow-xl shadow-primary/10 backdrop-blur" />
@@ -217,11 +271,22 @@ const Home = () => {
         {/* Course Description */}
         <section className="relative">
 
+
           <div className="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent blur-2xl" />
           <Card className="rounded-3xl border-primary/20 bg-white shadow-xl shadow-primary/10">
             <CardContent className="p-10 space-y-6">
               <div>
                 <p className="section-eyebrow text-primary">About This Course</p>
+                <h2 className="text-3xl font-bold text-ink">Creating & Learning with AI</h2>
+              </div>
+              <div className="space-y-4 text-ink-muted">
+                <p>
+                  A hands-on exploration of AI tools for creative and analytical work. Students will create portfolio-ready artifacts while learning to evaluate AI systems critically and ethically.
+                </p>
+                <p>
+                  This course emphasizes practical experience with AI tools, thoughtful comparison of their capabilities and limitations, and reflection on broader implications for creativity, learning, and society.
+                </p>
+
                 <h2 className="text-3xl font-bold text-ink">Build thoughtful AI practice, not just prompts.</h2>
               </div>
               <div className="grid gap-6 md:grid-cols-2">
@@ -246,10 +311,69 @@ const Home = () => {
                     </div>
                   ))}
                 </div>
+
               </div>
             </CardContent>
           </Card>
         </section>
+
+
+        {/* Quick Course Info */}
+        <section className="space-y-8">
+          <div className="flex flex-col items-center text-center gap-2">
+            <p className="section-eyebrow">Course Snapshot</p>
+            <h2 className="text-3xl font-bold text-ink">Schedule, location, and deadlines</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {infoCards.map(({ title, icon: Icon, lines }) => (
+              <Card key={title} className="rounded-2xl border border-border/70 bg-white shadow-lg">
+                <CardContent className="p-6 text-center space-y-3">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-ink">{title}</h3>
+                  <div className="text-sm text-ink-muted space-y-1">
+                    {lines.map((line) => (
+                      <p key={line}>{line}</p>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Course Resources */}
+        <section id="resources" className="space-y-6 scroll-mt-24">
+          <div className="flex flex-col items-center text-center gap-2">
+            <p className="section-eyebrow">Stay Connected</p>
+            <h2 className="text-3xl font-bold text-ink">Course contacts and resources</h2>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4">
+            {resourceLinks.map(({ label, href, icon: Icon, external, isInternal }) => (
+              <Button
+                key={label}
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2"
+                asChild
+              >
+                {isInternal ? (
+                  <Link to={href}>
+                    <Icon className="w-4 h-4" />
+                    {label}
+                  </Link>
+                ) : (
+                  <a
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {label}
+                  </a>
+                )}
+              </Button>
 
         {/* Weekly Rhythm */}
 
@@ -324,9 +448,22 @@ const Home = () => {
                   </div>
                 </CardContent>
               </Card>
+
             ))}
           </div>
         </section>
+
+
+        {/* Course Modules */}
+        <section id="modules" className="space-y-8 scroll-mt-24">
+          <div className="text-center space-y-3">
+            <p className="section-eyebrow">Course Modules</p>
+            <h2 className="text-3xl font-bold text-ink">Explore weekly modules</h2>
+            <p className="text-ink-muted max-w-3xl mx-auto">
+              Each module links to dedicated resources, assignments, and activities for the week.
+            </p>
+          </div>
+
 
         {/* Quick Course Info / Resources */}
         <section className="space-y-6">
@@ -387,6 +524,7 @@ const Home = () => {
             </p>
           </div>
 
+
           <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-4">
             {weeks.map((week) => {
               const weekData = getWeekData(week);
@@ -426,12 +564,14 @@ const Home = () => {
           </div>
         </section>
 
+
         {/* Footer */}
         <footer className="border-t border-border/60 pt-8 text-center text-sm text-ink-muted">
           <p>
             Questions or ideas for the course? Email Dr. Holster at <a href="mailto:jbh6331@psu.edu" className="text-primary underline-offset-4 hover:underline">jbh6331@psu.edu</a> or connect after class.
           </p>
         </footer>
+
       </div>
     </div>
   );

@@ -12,7 +12,10 @@ import {
   Camera,
   BookOpen,
   Clock,
+
+
   Compass
+
 } from "lucide-react";
 
 const Syllabus = () => {
@@ -42,6 +45,16 @@ const Syllabus = () => {
 
         <div className="relative max-w-6xl mx-auto px-6 py-12 space-y-16">
           {/* Top Navigation */}
+
+          <section>
+            <div className="flex justify-start">
+              <Button variant="outline" asChild>
+                <Link to="/" className="flex items-center gap-2">
+                  <ExternalLink className="w-4 h-4" />
+                  Course Home
+                </Link>
+              </Button>
+
           <section className="space-y-6">
             <Card className="rounded-3xl border border-border/60 bg-white shadow-lg">
               <CardContent className="p-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
@@ -79,6 +92,7 @@ const Syllabus = () => {
                   {item.label}
                 </a>
               ))}
+
             </div>
           </section>
 
@@ -337,6 +351,15 @@ const Syllabus = () => {
 
           {/* Bottom Navigation */}
           <section className="pb-12">
+
+            <div className="flex justify-center">
+              <Button variant="outline" asChild>
+                <Link to="/" className="flex items-center gap-2">
+                  <BookOpen className="w-4 h-4" />
+                  Back to Course Home
+                </Link>
+              </Button>
+
             <div className="flex flex-col items-center gap-3 text-center">
               <p className="text-sm text-ink-muted">
                 Looking for weekly content? Jump back to the main schedule to continue planning your semester.
@@ -349,6 +372,7 @@ const Syllabus = () => {
                   </Link>
                 </Button>
               </div>
+
             </div>
           </section>
         </div>
